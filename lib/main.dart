@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:islami_application/splash.dart';
+
+import 'Moduls/splash_screen/splash.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home:Splash(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: Splash.routeName,
+      routes: {Splash.routeName: (context) => const Splash()},
     );
   }
 
