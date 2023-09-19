@@ -17,7 +17,9 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
 
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetails;
-    if (contant.isEmpty) readFiles(args.SuraName);
+
+    if (contant.isEmpty) readFiles(args.SuraNumber);
+
     var mediaquery = MediaQuery.of(context).size;
     var them = Theme.of(context);
 
@@ -46,7 +48,7 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    args.SuraName,
+                    " سوره " + args.SuraName,
                     style: them.textTheme.bodyLarge,
                   ),
                   SizedBox(
@@ -71,6 +73,7 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
                   itemBuilder: (context, index) => Text(
                     contant,
                     style: them.textTheme.bodySmall,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               )
