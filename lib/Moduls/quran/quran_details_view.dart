@@ -17,7 +17,7 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
 
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetails;
-    if (contant.isEmpty) readFiles(args.SuraName);
+    if (contant.isEmpty) readFiles(args.SuraNumber);
     var mediaquery = MediaQuery.of(context).size;
     var them = Theme.of(context);
 
@@ -84,9 +84,9 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
   readFiles(String index) async {
     String text = await rootBundle.loadString("assets/files/$index.txt");
     contant = text;
-    contant.split("/n");
+    contant.split("\n");
     setState(() {
-      allVerses = contant.split("/n");
+      allVerses = contant.split("\n");
     });
     print(contant);
   }
