@@ -24,7 +24,7 @@ class _QuranItemState extends State<QuranItem> {
         Container(
           width: 1.2,
           height: 45,
-          color: them.primaryColor,
+          color: them.colorScheme.onPrimary,
         ),
         Expanded(
             child: Text(widget.SuraName,

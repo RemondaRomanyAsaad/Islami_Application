@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:isalami_application/Moduls/quran/quuran_view.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/provider/app_provider.dart';
 
 class QuranDetialsView extends StatefulWidget {
   static const String routeName = "QuranDetailsView";
@@ -16,15 +19,19 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
   List<String> allVerses = [];
 
   Widget build(BuildContext context) {
+    var appProvider = Provider.of<AppProvider>(context);
+
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetails;
     if (contant.isEmpty) readFiles(args.SuraNumber);
     var mediaquery = MediaQuery.of(context).size;
     var them = Theme.of(context);
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/BackGroundLight.png"),
+            image: AssetImage(appProvider.isDark()
+                ? "assets/images/BackGroundDark.png"
+                : "assets/images/BackGroundLight.png"),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
@@ -37,7 +44,7 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
           width: mediaquery.width,
           height: mediaquery.height,
           decoration: BoxDecoration(
-            color: Color(0xfff8f8f8).withOpacity(0.8),
+            color: them.colorScheme.onBackground.withOpacity(0.8),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
@@ -47,7 +54,8 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
                 children: [
                   Text(
                     args.SuraName,
-                    style: them.textTheme.bodyLarge,
+                    style: them.textTheme.bodyLarge!
+                        .copyWith(color: them.colorScheme.onSecondary),
                   ),
                   SizedBox(
                     width: 8,
@@ -55,24 +63,32 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
                   Icon(
                     Icons.play_circle,
                     size: 32,
-                    color: Colors.black,
+                    color: them.colorScheme.onSecondary,
                   )
                 ],
               ),
               Divider(
-                color: them.primaryColor,
                 indent: 30,
                 endIndent: 30,
                 thickness: 1.2,
                 height: 10,
               ),
               Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => Text(
-                    contant,
-                    style: them.textTheme.bodySmall,
+                  child: ListView(
+                    children: [
+                      Text(
+                        contant,
+                    style: them.textTheme.bodySmall!
+                        .copyWith(color: them.colorScheme.onSecondary),
                   ),
-                ),
+                    ],
+                  )
+                // ListView.builder(
+                //   itemBuilder: (context, index) => Text(
+                //     contant,
+                //     style: them.textTheme.bodySmall,
+                //   ),
+                // ),
               )
             ],
           ),

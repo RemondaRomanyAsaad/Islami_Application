@@ -21,7 +21,6 @@ class _HadethViewState extends State<HadethView> {
         Image.asset("assets/images/hadeth_header.png"),
         Divider(
           thickness: 2.2,
-          color: them.primaryColor,
           indent: 10,
           endIndent: 10,
           height: 5,
@@ -32,7 +31,6 @@ class _HadethViewState extends State<HadethView> {
         ),
         Divider(
           thickness: 2.2,
-          color: them.primaryColor,
           indent: 10,
           endIndent: 10,
           height: 5,
@@ -53,7 +51,6 @@ class _HadethViewState extends State<HadethView> {
             ),
             separatorBuilder: (context, index) => Divider(
               thickness: 2.2,
-              color: them.primaryColor,
               indent: 80,
               endIndent: 80,
               height: 5,
