@@ -52,10 +52,14 @@ class _HadethDetials extends State<HadethDetials> {
                 thickness: 1.2,
                 height: 10,
               ),
-              Text(
-                args.contant,
-                style: them.textTheme.bodySmall,
-                textAlign: TextAlign.center,
+              Expanded(
+                child: ListView(children: [
+                  Text(
+                    args.contant,
+                    style: them.textTheme.bodySmall,
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
               ),
               // Expanded(
               //   child: ListView.builder(

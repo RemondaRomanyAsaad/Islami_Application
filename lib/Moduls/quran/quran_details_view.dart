@@ -67,13 +67,21 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
                 height: 10,
               ),
               Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => Text(
+                  child: ListView(
+                children: [
+                  Text(
                     contant,
                     style: them.textTheme.bodySmall,
                   ),
-                ),
+                ],
               )
+                  // ListView.builder(
+                  //   itemBuilder: (context, index) => Text(
+                  //     contant,
+                  //     style: them.textTheme.bodySmall,
+                  //   ),
+                  // ),
+                  )
             ],
           ),
         ),
