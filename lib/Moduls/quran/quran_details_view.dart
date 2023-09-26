@@ -87,9 +87,9 @@ class _QuranDetialsViewState extends State<QuranDetialsView> {
   readFiles(String index) async {
     String text = await rootBundle.loadString("assets/files/$index.txt");
     contant = text;
-    contant.split("/n");
+    contant.split("\n");
     setState(() {
-      allVerses = contant.split("/n");
+      allVerses = contant.split("\n");
     });
     print(contant);
   }
