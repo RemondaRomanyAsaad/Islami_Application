@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:isalami_application/Moduls/hadeth/hadeth_view.dart';
-import 'package:provider/provider.dart';
-
-import '../../core/provider/app_provider.dart';
 
 class HadethDetials extends StatefulWidget {
   static const String routeName = "Hadeth_Details";
@@ -19,17 +16,14 @@ class _HadethDetials extends State<HadethDetials> {
 
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as HadethContant;
-    var appProvider = Provider.of<AppProvider>(context);
 
     var mediaquery = MediaQuery.of(context).size;
     var them = Theme.of(context);
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(appProvider.isDark()
-                ? "assets/images/BackGroundDark.png"
-                : "assets/images/BackGroundLight.png"),
+            image: AssetImage("assets/images/BackGroundLight.png"),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
@@ -42,31 +36,26 @@ class _HadethDetials extends State<HadethDetials> {
           width: mediaquery.width,
           height: mediaquery.height,
           decoration: BoxDecoration(
-            color: them.colorScheme.onBackground.withOpacity(0.8),
+            color: Color(0xfff8f8f8).withOpacity(0.8),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
             children: [
               Text(
                 args.title,
-                style: them.textTheme.bodyLarge!
-                    .copyWith(color: them.colorScheme.onSecondary),
+                style: them.textTheme.bodyLarge,
               ),
               Divider(
+                color: them.primaryColor,
                 indent: 30,
                 endIndent: 30,
                 thickness: 1.2,
                 height: 10,
               ),
-              Expanded(
-                child: ListView(children: [
-                  Text(
-                    args.contant,
-                    style: them.textTheme.bodySmall!
-                        .copyWith(color: them.colorScheme.onSecondary),
-                    textAlign: TextAlign.center,
-                  ),
-                ]),
+              Text(
+                args.contant,
+                style: them.textTheme.bodySmall,
+                textAlign: TextAlign.center,
               ),
               // Expanded(
               //   child: ListView.builder(
