@@ -10,6 +10,7 @@ class ApplicationTheme {
         seedColor: const Color(0xffB7935F),
         onSecondary: Colors.black,
         onPrimary: const Color(0xffB7935F),
+        shadow: const Color(0xffB7935F),
         onBackground: const Color(0xffF8F8F8)),
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
@@ -65,6 +66,7 @@ class ApplicationTheme {
         seedColor: const Color(0xff141A2E),
         onSecondary: const Color(0xffFACC1D),
         onPrimary: const Color(0xffFACC1D),
+        shadow: const Color(0xffFACC1D),
         onBackground: const Color(0xff141A2E)),
     appBarTheme: AppBarTheme(
       iconTheme: const IconThemeData(
