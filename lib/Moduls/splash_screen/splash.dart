@@ -28,6 +28,6 @@ class Splash extends StatelessWidget {
         height: mediaquery.height,
         fit: BoxFit.cover,
       ),
-;
+    );
   }
 }
